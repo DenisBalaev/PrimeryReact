@@ -25,6 +25,7 @@ let emptyDevice = {
         ProductService.getProducts().then((data) => setProducts(data));
     }, []);
 
+    
     let headerGroup = (
         <ColumnGroup>
           <Row>
