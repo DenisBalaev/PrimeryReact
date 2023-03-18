@@ -27,42 +27,42 @@ export default class DataTableDevices extends Component {
     }
     
     render() {
-        let headerGroup = (
-          <ColumnGroup>
-            <Row>
-              <Column header="Номер аппарата (первые 4 цифры)" field="id" rowSpan={2} sortable filter filterDisplay='row' 
-              filterPlaceholder="Search"/>
-
-              <Column header="Статус" rowSpan={2} field="status" filter filterPlaceholder="Search"/>
-              <Column header="Адрес" colSpan={2} />
-              <Column header="Привязанное меню" field='menu' rowSpan={2} filter filterPlaceholder="Search"/>
-              <Column header="Рекламные плейлисты" field='playlist' rowSpan={2} filter filterPlaceholder="Search"/>
-              <Column header="Статусы узлов аппарата" rowSpan={2} />
-              <Column header="Дата добавления в админку" rowSpan={2} field="dateAdded" sortable/>
-              <Column header="Сумма продаж за последний месяц" rowSpan={2} />
-              <Column header="Сумма продаж за день" rowSpan={2} />
-            </Row>
-            <Row>
-              <Column header="Коорд" colSpan={1} />
-              <Column header="Тип объекта" field="type" colSpan={1} filter filterPlaceholder="Search"/>
-            </Row>
-          </ColumnGroup>
-        );
-
-        const dateAddedBody = (rowData) => {
-          return `${formatCurrency(rowData.dateAdded)}`;
-        }
-
-        const formatCurrency = (value) => {
-          const options = {
-            day: 'numeric',
-            month: 'numeric',
-            year: 'numeric',
-          };
-          const arr = value.split('.')
-          const date = new Date(`${arr[2]}.${arr[1]}.${arr[0]}`).toLocaleString('default', options)       
-          return date   
-        }
+      let headerGroup = (
+        <ColumnGroup>
+          <Row>
+            <Column header="Номер аппарата (первые 4 цифры)" field="id" rowSpan={2} sortable filter filterDisplay='row' 
+            filterPlaceholder="Search"/>
+  
+            <Column header="Статус" rowSpan={2} field="status" filter filterPlaceholder="Search"/>
+            <Column header="Адрес" colSpan={2} />
+            <Column header="Привязанное меню" field='menu' rowSpan={2} filter filterPlaceholder="Search"/>
+            <Column header="Рекламные плейлисты" field='playlist' rowSpan={2} filter filterPlaceholder="Search"/>
+            <Column header="Статусы узлов аппарата" rowSpan={2} />
+            <Column header="Дата добавления в админку" rowSpan={2} field="dateAdded" sortable/>
+            <Column header="Сумма продаж за последний месяц" rowSpan={2} />
+            <Column header="Сумма продаж за день" rowSpan={2} />
+          </Row>
+          <Row>
+            <Column header="Коорд" colSpan={1} />
+            <Column header="Тип объекта" field="type" colSpan={1} filter filterPlaceholder="Search"/>
+          </Row>
+        </ColumnGroup>
+      );
+  
+      const dateAddedBody = (rowData) => {
+        return `${formatCurrency(rowData.dateAdded)}`;
+      }
+  
+      const formatCurrency = (value) => {
+        const options = {
+          day: 'numeric',
+          month: 'numeric',
+          year: 'numeric',
+        };
+        const arr = value.split('.')
+        const date = new Date(`${arr[2]}.${arr[1]}.${arr[0]}`).toLocaleString('default', options)       
+        return date   
+      }
 
         return (
           <div>

@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TabView,TabPanel } from 'primereact/tabview';
 import DtDevices from './device/DataTableDevices'
 import { ScrollPanel } from 'primereact/scrollpanel';
+import Demo from './ProductsDemo';
 
 export default function MenuTabBar() {
-
-    const items = [
-        {label: 'Аппараты'},{label: 'Инструменты'},{label: 'Напитки'},{label: 'Техпроцесс'},{label: 'Меню'},
-        {label: 'Конфигурация аппарата'},{label: 'Плейлисты'},{label: 'Техники'},{label: 'Клиенты'},{label: 'Статистика'},
-        {label: 'Статусы узлов аппарата'},{label: 'Технические операции'},{label: 'Расширенные настройки'},
-        {label: 'Продажа'}
-    ];
 
   return (
     <div>
@@ -23,7 +17,7 @@ export default function MenuTabBar() {
             </TabPanel>
 
             <TabPanel header="Инструменты">
-                <DtDevices/>
+                <Demo/>
             </TabPanel>
 
             <TabPanel header="Напитки">
