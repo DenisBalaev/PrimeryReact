@@ -1,8 +1,6 @@
 import React from 'react';
 import { TabView,TabPanel } from 'primereact/tabview';
-import DtDevices from './device/DataTableDevices'
-import { ScrollPanel } from 'primereact/scrollpanel';
-import Demo from './ProductsDemo';
+import DeviceMain from './device/DeviceMain';
 
 export default function MenuTabBar() {
 
@@ -11,61 +9,59 @@ export default function MenuTabBar() {
         <TabView>
 
             <TabPanel header="Аппараты">
-                <ScrollPanel style={{ width: '100%', height: '100%' }}>
-                    <DtDevices/>
-                </ScrollPanel>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header="Инструменты">
-                <Demo/>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header="Напитки">
-                <DtDevices/>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header="Техпроцесс">
-                <DtDevices/>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header="Меню">
-                <DtDevices/>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header="Конфигурация аппарата">
-                <DtDevices/>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header="Плейлисты">
-                <DtDevices/>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header ="Техники">
-                <DtDevices/>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header="Статусы узлов аппарата">
-                <DtDevices/>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header="Клиенты">
-                <DtDevices/>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header="Статистика">
-                <DtDevices/>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header="Технические операции">
-                <DtDevices/>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header="Расширенные настройки">
-                <DtDevices/>
+                <DeviceMain/>
             </TabPanel>
 
             <TabPanel header="Продажа">
-                <DtDevices/>
+                <DeviceMain/>
             </TabPanel>
         </TabView>
     </div>
