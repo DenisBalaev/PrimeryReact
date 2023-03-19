@@ -6,11 +6,15 @@
         "koord": "-35.7911,-81.087",
         "type": "БЦ",
         "menu": "2 Меню2",
-        "playlist": 1,
+        "playlist": "1",
         "statusApp": "Сломан 3уз",
         "dateAdded": "2022-02-28",
         "summMo": 53,
-        "summDay": 9
+        "summDay": 9,
+        "agentVersion":"1",
+        "androidVersion":"1.0",
+        "progectVersion":"1.0",
+        "deviceConfiguration":"1.0"
       },
       {
         "id": 91,
@@ -18,11 +22,15 @@
         "koord": "13.2857,-103.5299",
         "type": "Улица",
         "menu": "3 Меню2",
-        "playlist": 1,
+        "playlist": "1",
         "statusApp": "Сломан 4уз",
         "dateAdded": "2022-01-11",
         "summMo": 18,
-        "summDay": 4
+        "summDay": 4,
+        "agentVersion":"1",
+        "androidVersion":"1.0",
+        "progectVersion":"1.0",
+        "deviceConfiguration":"1.0"
       },
       {
         "id": 97,
@@ -30,11 +38,15 @@
         "koord": "56.6116,-84.1752",
         "type": "ТЦ",
         "menu": "4 Меню1",
-        "playlist": 3,
+        "playlist": "3",
         "statusApp": "Сломан 1уз",
         "dateAdded": "2022-08-23",
         "summMo": 12,
-        "summDay": 10
+        "summDay": 10,
+        "agentVersion":"1",
+        "androidVersion":"1.0",
+        "progectVersion":"1.0",
+        "deviceConfiguration":"1.0"
       },
       {
         "id": 60,
@@ -42,11 +54,15 @@
         "koord": "9.4904,116.2134",
         "type": "Улица",
         "menu": "Меню5",
-        "playlist": 3,
+        "playlist": "3",
         "statusApp": "Ок",
         "dateAdded": "2022-12-07",
         "summMo": 61,
-        "summDay": 5
+        "summDay": 5,
+        "agentVersion":"3",
+        "androidVersion":"3.0",
+        "progectVersion":"3.0",
+        "deviceConfiguration":"3.0"
       },
       {
         "id": 86,
@@ -54,11 +70,15 @@
         "koord": "-15.7507,-37.0887",
         "type": "Дорога",
         "menu": "Меню2",
-        "playlist": 1,
+        "playlist": "1",
         "statusApp": "Сломан 3уз",
         "dateAdded": "2022-08-30",
         "summMo": 38,
-        "summDay": 3
+        "summDay": 3,
+        "agentVersion":"1",
+        "androidVersion":"1.0",
+        "progectVersion":"1.0",
+        "deviceConfiguration":"1.0"
       },
       {
         "id": 99,
@@ -66,11 +86,15 @@
         "koord": "35.7484,-29.2691",
         "type": "Улица",
         "menu": "Меню1",
-        "playlist": 2,
+        "playlist": "2",
         "statusApp": "Сломан 1уз",
         "dateAdded": "2022-07-02",
         "summMo": 97,
-        "summDay": 8
+        "summDay": 8,
+        "agentVersion":"1",
+        "androidVersion":"1.0",
+        "progectVersion":"1.0",
+        "deviceConfiguration":"1.0"
       },
       {
         "id": 15,
@@ -78,11 +102,15 @@
         "koord": "-5.1024,-58.5472",
         "type": "ТЦ",
         "menu": "Меню5",
-        "playlist": 2,
+        "playlist": "2",
         "statusApp": "Ок",
         "dateAdded": "2023-01-04",
         "summMo": 30,
-        "summDay": 5
+        "summDay": 5,
+        "agentVersion":"2",
+        "androidVersion":"2.0",
+        "progectVersion":"2.0",
+        "deviceConfiguration":"2.0"
       },
       {
         "id": 33,
@@ -90,11 +118,15 @@
         "koord": "-25.0942,-169.3147",
         "type": "Метро",
         "menu": "Меню2",
-        "playlist": 1,
+        "playlist": "1",
         "statusApp": "Ок",
         "dateAdded": "2023-10-09",
         "summMo": 32,
-        "summDay": 2
+        "summDay": 2,
+        "agentVersion":"1",
+        "androidVersion":"1.0",
+        "progectVersion":"1.0",
+        "deviceConfiguration":"1.0"
       }
     ]
   }

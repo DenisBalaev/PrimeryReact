@@ -1,3 +1,14 @@
 .buttonNew {
     margin-right: 15px;
 }
+
+.contener_text_count{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.text_count{
+    margin-left: 15px;
+    font-size: 18px;
+    flex-direction: column;
+}
