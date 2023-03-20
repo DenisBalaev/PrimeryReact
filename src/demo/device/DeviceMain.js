@@ -1,15 +1,15 @@
 import React, { useState, useEffect,useRef  } from 'react';
-import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { DeviceService } from '../../service/DeviceService';
+import { DataTable } from 'primereact/datatable';
 import { ColumnGroup } from "primereact/columngroup";
 import { Row } from "primereact/row";
+import { DeviceService } from '../../service/DeviceService';
 import { Button } from 'primereact/button';
-import { Toolbar } from 'primereact/toolbar';
 import { Dialog } from 'primereact/dialog';
+import { Toolbar } from 'primereact/toolbar';
+import { Toast } from 'primereact/toast';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { InputText } from 'primereact/inputtext';
-import { Toast } from 'primereact/toast';
 import { Dropdown } from 'primereact/dropdown';
 import { MultiSelect } from 'primereact/multiselect';
 import { Calendar } from 'primereact/calendar';
@@ -77,13 +77,14 @@ export default function DeviceMain() {
       const statusAppSelectItems = [{name: 'Ок'},{name: '	Сломан 3уз'},{name: 'Сломан 1уз'},{name:'Сломан 4уз'}];
 
       useEffect(() => {
-        DeviceService.getDevices().then((data) => {
+        const devieService = DeviceService
+        devieService.getDevices().then((data) => {
           setDevices(data); 
           setCountSearch(data.length);
           setCountAllRowDataTable(data.length);
         });
 
-        DeviceService.getHistory().then((data) => setHistorys(data));
+        devieService.getHistory().then((data) => setHistorys(data));
       }, []);
 
       let headerGroup = (

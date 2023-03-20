@@ -1,6 +1,7 @@
 import React from 'react';
 import { TabView,TabPanel } from 'primereact/tabview';
 import DeviceMain from './device/DeviceMain';
+import IngredientMain from './IngredientMain';
 
 export default function MenuTabBar() {
 
@@ -12,8 +13,8 @@ export default function MenuTabBar() {
                 <DeviceMain/>
             </TabPanel>
 
-            <TabPanel header="Инструменты">
-                <DeviceMain/>
+            <TabPanel header="Ингредиенты">
+                <IngredientMain/>
             </TabPanel>
 
             <TabPanel header="Напитки">
