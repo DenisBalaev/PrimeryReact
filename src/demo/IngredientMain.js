@@ -8,20 +8,13 @@ import { Toolbar } from 'primereact/toolbar';
 import { Toast } from 'primereact/toast';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
+import { Dropdown } from 'primereact/dropdown';
 import 'primeicons/primeicons.css';
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.css';
 import 'primeflex/primeflex.css';
 
 export default function IngredientMain() {
-
-    const toast = useRef(null);
-    const [ingredients, setIngredients] = useState(null);
-    const [selectedIngredients, setSelectedIngredients] = useState(null);
-    const [deleteIngredientsDialog, setDeleteIngredientsDialog] = useState(false);
-    const [ingredient, setIngredient] = useState(emptyIngredient);
-
-    const rowClick = false;
 
     let emptyIngredient = {
         nameCoffie: '',
@@ -41,9 +34,22 @@ export default function IngredientMain() {
         grammCanister: 0
     }
 
+    const typeSelectItems = [{name: 'Основа кофе'},{name: 'Сиропы'},{name: 'Лед'},{name: 'Канистры'}];
+
+    const toast = useRef(null);
+    const [ingredients, setIngredients] = useState(null);
+    const [selectedIngredients, setSelectedIngredients] = useState(null);
+    const [deleteIngredientsDialog, setDeleteIngredientsDialog] = useState(false);
+    const [ingredient] = useState(emptyIngredient);
+    const [selectedTypeIngredient, setSelectedTypeIngredient] = useState(null);
+    
+
+    const rowClick = false;
+
     useEffect(() => {
         IngredientService.getIngridient().then((data) => {
             setIngredients(data); 
+            setSelectedTypeIngredient('Основа кофе');
         });
     }, []);
 
@@ -55,35 +61,42 @@ export default function IngredientMain() {
                 className='buttonNew'/>
             </div>
         );
-      };
+    };
 
-      const deleteDevicesDialogFooter = (
-        <React.Fragment>
-            <Button label="No" icon="pi pi-times" outlined onClick={hideDeleteIngredientsDialog} />
-            <Button label="Yes" icon="pi pi-check" severity="danger" onClick={deleteSelectedIngredients} />
-        </React.Fragment>
-    );
+    const rightToolbarTemplate = () => {
+        return (
+            <Dropdown placeholder="Выберете тип объекта" value={selectedTypeIngredient} options={typeSelectItems} onChange={(e)=> setSelectedTypeIngredient(e.value)} optionLabel="name" editable/>
+        );
+      }
 
-      const confirmDeleteSelected = () => {
+    const confirmDeleteSelected = () => {
         setDeleteIngredientsDialog(true);
-      };
+    };
 
-      const hideDeleteIngredientsDialog = () => {
+    const hideDeleteIngredientsDialog = () => {
         setDeleteIngredientsDialog(false);
-      };
+    };
 
-      const deleteSelectedIngredients = () => {
+    const deleteSelectedIngredients = () => {
         let _ingredients = ingredients.filter((val) => !selectedIngredients.includes(val));
 
         setIngredients(_ingredients);
         setDeleteIngredientsDialog(false);
         setSelectedIngredients(null);
         toast.current.show({ severity: 'success', summary: 'Successful', detail: 'Удаление Ингридиента', life: 3000 });
-      };
+    };
+
+    const deleteIngredientsDialogFooter = (
+        <React.Fragment>
+            <Button label="No" icon="pi pi-times" outlined onClick={hideDeleteIngredientsDialog} />
+            <Button label="Yes" icon="pi pi-check" severity="danger" onClick={deleteSelectedIngredients} />
+        </React.Fragment>
+    );
 
     let headerGroup = (
         <ColumnGroup>
           <Row>
+          <Column selectionMode="multiple" exportable={false} rowSpan={5}/>
             <Column header="Основа кофе" field="nameCoffie" colSpan={5} sortable/>
             <Column header="Сиропы" field="nameSuryp" colSpan={3} sortable/>
             <Column header="Лед" field="nameIce" colSpan={3} sortable/>
@@ -113,7 +126,7 @@ export default function IngredientMain() {
     <div>
         <div className="card">
             <Toast ref={toast} />
-            <Toolbar className="mb-4" left={leftToolbarTemplate}/>
+            <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}/>
             <DataTable value={ingredients} headerColumnGroup={headerGroup} scrollable scrollHeight="100%"
                 selectionMode={rowClick ? null : 'checkbox'} selection={selectedIngredients} onSelectionChange={(e) => setSelectedIngredients(e.value)}
             >
@@ -134,14 +147,16 @@ export default function IngredientMain() {
                 <Column field="coverCanister" header="Обложка"></Column>
                 <Column field="grammCanister" header="Количество (г)"></Column>
             </DataTable>
+
+            <Dialog visible={deleteIngredientsDialog} style={{ width: '32rem' }} breakpoints={{ '960px': '75vw', '641px': '90vw' }} header="Confirm" modal footer={deleteIngredientsDialogFooter} onHide={hideDeleteIngredientsDialog}>
+                <div className="confirmation-content">
+                    <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />
+                    {ingredient && <span>Are you sure you want to delete the selected devices?</span>}
+                </div>
+            </Dialog>
         </div>
 
-        <Dialog visible={deleteIngredientsDialog} style={{ width: '32rem' }} breakpoints={{ '960px': '75vw', '641px': '90vw' }} header="Confirm" modal footer={deleteDevicesDialogFooter} onHide={hideDeleteIngredientsDialog}>
-            <div className="confirmation-content">
-                <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />
-                {ingredient && <span>Are you sure you want to delete the selected devices?</span>}
-            </div>
-        </Dialog>
+  
     </div>
   )
 }

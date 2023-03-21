@@ -42,7 +42,7 @@ export default function DeviceMain() {
       const [historys, setHistorys] = useState(null);
       
       const [selectedDevices, setSelectedDevices] = useState(null);
-      const [device, setDevice] = useState(emptyDevice);
+      const [device] = useState(emptyDevice);
       const [submitted, setSubmitted] = useState(false);
       const [deviceDialog, setDeviceDialog] = useState(false);
       const [deleteDevicesDialog, setDeleteDevicesDialog] = useState(false);
@@ -142,7 +142,7 @@ export default function DeviceMain() {
       }
 
       const openNew = () => {
-        setDevice(emptyDevice);
+        clearFields();
         setSubmitted(false);
         setDeviceDialog(true);
       };
@@ -150,7 +150,6 @@ export default function DeviceMain() {
       const hideDialog = () => {
         setSubmitted(false);
         setDeviceDialog(false);
-        clearFields();
       };
 
       const confirmDeleteSelected = () => {
@@ -204,7 +203,7 @@ export default function DeviceMain() {
       );
 
       const editDevice = (device) => {
-        setDevice({ ...device });
+      
         setDeviceDialog(true);
         setValueId(device.id);
         setSelectedStatus(device.status);
