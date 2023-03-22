@@ -42,8 +42,6 @@ export default function IngredientMain() {
     const [deleteIngredientsDialog, setDeleteIngredientsDialog] = useState(false);
     const [ingredient] = useState(emptyIngredient);
     const [selectedTypeIngredient, setSelectedTypeIngredient] = useState(null);
-    
-
     const rowClick = false;
 
     useEffect(() => {
